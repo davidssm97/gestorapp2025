@@ -1,13 +1,16 @@
+import { Dashboard } from "../../pages/Dashboard/Dashboard";
+import { Home } from "../../pages/Home/Home";
 import "./Menu.css";
+import { Link } from "react-router-dom";
 
 export function Menu() {
   return (
     <>
       <nav className="navbar navbar-expand-lg menu navbar-dark fixed-top">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/home">
+          <Link className="navbar-brand" to={Home}>
             Home
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,12 +25,12 @@ export function Menu() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/home">
+                <Link className="nav-link active" aria-current="page" to={Home}>
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-              <a className="nav-link" href="/dashboard">DashBoard</a>
+              <Link className="nav-link" to={Dashboard}>DashBoard</Link>
 
 
               </li>
