@@ -6,11 +6,10 @@ import { Menu } from "../common/Menu/Menu";
 export function Rutas() {
   return (
     <>
-
-        <Menu />
+      <Menu />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="Dashboard" element={<Dashboard />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </>
   );

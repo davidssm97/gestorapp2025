@@ -1,16 +1,12 @@
-import { Dashboard } from "../../pages/Dashboard/Dashboard";
-import { Home } from "../../pages/Home/Home";
-import "./Menu.css";
 import { Link } from "react-router-dom";
+import "./Menu.css";
 
 export function Menu() {
   return (
     <>
       <nav className="navbar navbar-expand-lg menu navbar-dark fixed-top">
         <div className="container-fluid">
-          <Link className="navbar-brand" to={Home}>
-            Home
-          </Link>
+          <Link className="navbar-brand" to="/">Home</Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -25,27 +21,12 @@ export function Menu() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to={Home}>
-                  Home
-                </Link>
+                <Link className="nav-link active" to="/">Home</Link>
               </li>
               <li className="nav-item">
-              <Link className="nav-link" to={Dashboard}>DashBoard</Link>
-
-
+                <Link className="nav-link" to="/dashboard">Dashboard</Link>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>

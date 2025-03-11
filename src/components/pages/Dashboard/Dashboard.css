@@ -4,50 +4,46 @@ body {
 }
 
 .dashboard-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
     padding: 20px;
 }
 
-/* Imagen más a la izquierda y con sombra */
+/* Imagen con sombra y posición */
 .image-container {
     flex: 1;
-    max-width: 55%;
-    margin-left: -50px; /* Ajusta esto si quieres moverla más */
+    max-width: 50%;
+    text-align: center;
 }
 
 .dashboard-image {
-    width: 600px;
-    height: 500px; /* Más alargada */
+    width: 100%;
+    height: 200px;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.3); /* Sombra */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Si no hay imagen */
+.no-image-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background: #444;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
 }
 
 /* Card más ancha */
 .content-card {
-    flex: 1;
-    max-width: 500px; /* Aumentamos el ancho */
     background-color: #333;
     color: white;
     padding: 20px;
     border-radius: 10px;
-    border: 3px solid #d4af37; /* Borde dorado */
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
+    border: 3px solid #d4af37;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-.schedule-list {
-    list-style: none;
-    padding: 0;
-}
-
-.schedule-list li {
-    margin-bottom: 5px;
-}
-
-/* Estilo mejorado para los botones */
+/* Botones */
 .reserve-button, .cancel-button {
     width: 100%;
     padding: 10px;
@@ -79,16 +75,12 @@ body {
     transform: scale(1.05);
 }
 
-/* Estilos mejorados para el formulario */
+/* Formulario */
 .reservation-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-top: 15px;
-}
-
-.reservation-form label {
-    font-weight: bold;
 }
 
 .reservation-form select {
@@ -97,25 +89,4 @@ body {
     border: 1px solid #ccc;
     background-color: #222;
     color: white;
-}
-
-.card-title {
-    font-size: 1rem; /* Mismo tamaño que el texto normal */
-    font-weight: normal; /* Se mantiene igual que el contenido */
-    font-family: inherit; /* Usa la misma fuente que el resto */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra ligera */
-    color: white; /* Asegura que el color sea uniforme */
-}
-
-/* Estilos para el header "Cuarto Gamer" */
-.card-header {
-    font-size: 3rem; /* Mismo tamaño que el resto del texto */
-    font-weight: normal; /* Sin negrita extra */
-    font-family: inherit; /* Usa la misma fuente que el contenido */
-    text-align: center; /* Centra el texto */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para resaltar */
-    background-color: transparent; /* Fondo transparente */
-    border-bottom: 2px solid #d4af37; /* Línea dorada debajo */
-    padding: 10px;
-    color: white; /* Para asegurar que se vea bien en el fondo oscuro */
 }
