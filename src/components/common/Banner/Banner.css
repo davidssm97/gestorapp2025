@@ -1,43 +1,51 @@
-.banner {
-    background-image: url("/img/Apartamentos_Oqyana.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    padding: 8rem 2rem;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .banner::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(40, 40, 40, 0.7));
-    backdrop-filter: blur(3px);
-    z-index: -1;
-    opacity: 0.9;
-  }
-  
-  .banner h1 {
-    font-size: 4rem;
-    color: #FFD700;
-    font-weight: 900;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  }
-  
-  .banner p {
-    color: #fff;
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+.hero-banner {
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.carousel-container {
+  height: 100%;
+  position: relative;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(15, 15, 15, 0.75));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1;
+}
+
+.hero-content {
+  background-color: rgba(20, 20, 20, 0.65);
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 750px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content h1 {
+  color: #FFD700;
+}
+
+.hero-content p {
+  color: #f1f1f1;
+  font-size: 1.25rem;
+}
