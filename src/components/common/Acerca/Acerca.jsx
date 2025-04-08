@@ -1,18 +1,39 @@
-export function Acerca(){
-    return(
+import "./Acerca.css";
+import { Carousel } from "react-bootstrap";
 
-        <section className="container my-5">
-            <section className="row">
-                <section className="col-12 col-md-6">
-                    <img src="../../../../src/assets/img/BD-1_AG.webp" alt="imagen" className="img-fluid"/>
-                </section>
-                <section className="col-12 col-md-6">
-                    <h2>GestorApp</h2>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa corporis cum accusantium, fuga ab eveniet reiciendis in culpa expedita necessitatibus nihil quaerat accusamus ullam aperiam illo adipisci sequi porro.
-                    </p>
-                </section>
-            </section>
-        </section>
-    )
+export function Acerca() {
+  return (
+    <section className="acerca-container container my-5 py-4">
+      <div className="row align-items-center">
+        <div className="col-md-6 mb-3">
+          <Carousel fade interval={5000}>
+            <Carousel.Item>
+              <img
+                src="src/assets/img/residencia.jfif"
+                className="d-block w-100 rounded shadow"
+                alt="Vista comunidad 1"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                src="src/assets/img/unidad.jfif"
+                className="d-block w-100 rounded shadow"
+                alt="Vista comunidad 2"
+              />
+            </Carousel.Item>
+          </Carousel>
+        </div>
+        <div className="col-md-6 text-white">
+          <h2 className="text-warning fw-bold mb-3">¿Qué es GestorApp?</h2>
+          <p style={{ lineHeight: "1.8" }}>
+            GestorApp es tu solución digital para gestionar eficientemente las
+            reservas de espacios comunes en tu unidad residencial. Simplifica el
+            acceso a zonas como piscinas, gimnasios, salones sociales y más,
+            garantizando una mejor organización y experiencia para todos los
+            residentes.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 }

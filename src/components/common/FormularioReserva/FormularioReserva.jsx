@@ -1,59 +1,100 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+
+
 export function FormularioReserva() {
+  const navigate = useNavigate();
+  const [getResponsableReserva, setResponsableReserva] = useState(localStorage.getItem("responsableReserva") || "");
+  const [getNumeroApartamento, setNumeroApartamento] = useState(localStorage.getItem("numeroApartamento") || "");
+  const [getNumeroContacto, setNumeroContacto] = useState(localStorage.getItem("numeroContacto") || "");
+  const [getCorreoElectronico, setCorreoElectronico] = useState(localStorage.getItem("correoElectronico") || "");
+  const [getDiaReserva, setDiaReserva] = useState(localStorage.getItem("diaReserva") || "");
+  const [getHoraReserva, setHoraReserva] = useState(localStorage.getItem("horaReserva") || "");
+  const [getconsideraciones, setconsideraciones] = useState(localStorage.getItem("consideraciones") || "");
 
-    const [getResponsableReserva, setResponsableReserva] = useState("");
-    const [getNumeroApartamento, setNumeroApartamento] = useState("");
-    const [getNumeroContacto, setNumeroContacto] = useState("");
-    const [getCorreoElectronico, setCorreoElectronico] = useState("");
-    const [getDiaReserva, setDiaReserva] = useState("");
-    const [getHoraReserva, setHoraReserva] = useState("");
-    const [getconsideraciones, setconsideraciones] = useState("");
+  const [getFormularioHaSidoEnviado, setFormularioHaSidoEnviado] = useState(false);
+  const [nombreEspacio, setNombreEspacio] = useState("");
 
-    const[getDatosFormulario, setDatosFormulario] = useState("")
-    const[getFormularioHaSidoEnviado, setFormularioHaSidoEnviado] = useState(false)
+  const location = useLocation();
+  const { dia, hora, nombreEspacio: nombreDesdeCalendario } = location.state || {};
 
-  //inicializando el useLocation
-    const location = useLocation()
-    const {dia,hora}=location.state || {}
-
-    useEffect(()=>{
-      if(dia && hora){
-        setDiaReserva(dia)
-        setHoraReserva(hora)
-      }
-    },[dia,hora])
-
-
-    //los datos del formulario viajan hacia el api 
-    //rutina para llamar al api
-
-    useEffect(()=>{
-        if(getFormularioHaSidoEnviado){
-            console.log("Datos Registrados")
-            console.log(getDatosFormulario)
-        }
-    },[getFormularioHaSidoEnviado])
-
-
-    function capturarDatosFormulario(){
-        evento.preventDefault()
-        let datosCapturados = {
-            responsableReserva: getResponsableReserva,
-            numeroApartamento: getNumeroApartamento,
-            numeroContacto: getNumeroContacto,
-            correoElectronico: getCorreoElectronico,
-            diaReserva: getDiaReserva,
-            horaReserva: getHoraReserva,
-            consideraciones: getconsideraciones
-        }
-        setDatosFormulario(datosCapturados)
-        setFormularioHaSidoEnviado(true)
+  useEffect(() => {
+    if (dia && hora) {
+      setDiaReserva(dia);
+      setHoraReserva(hora);
     }
+    if (nombreDesdeCalendario) {
+      setNombreEspacio(nombreDesdeCalendario);
+    }
+  }, [dia, hora, nombreDesdeCalendario]);
 
+  // Persistencia
+  useEffect(() => localStorage.setItem("responsableReserva", getResponsableReserva), [getResponsableReserva]);
+  useEffect(() => localStorage.setItem("numeroApartamento", getNumeroApartamento), [getNumeroApartamento]);
+  useEffect(() => localStorage.setItem("numeroContacto", getNumeroContacto), [getNumeroContacto]);
+  useEffect(() => localStorage.setItem("correoElectronico", getCorreoElectronico), [getCorreoElectronico]);
+  useEffect(() => localStorage.setItem("diaReserva", getDiaReserva), [getDiaReserva]);
+  useEffect(() => localStorage.setItem("horaReserva", getHoraReserva), [getHoraReserva]);
+  useEffect(() => localStorage.setItem("consideraciones", getconsideraciones), [getconsideraciones]);
 
+  
 
-
+  function capturarDatosFormulario(evento) {
+    evento.preventDefault();
+  
+    // Validar campos vacíos
+    if (
+      !getResponsableReserva ||
+      !getNumeroApartamento ||
+      !getNumeroContacto ||
+      !getCorreoElectronico ||
+      !getDiaReserva ||
+      !getHoraReserva ||
+      !nombreEspacio
+    ) {
+      alert("Por favor completa todos los campos.");
+      return;
+    }
+  
+    const datosApi = JSON.parse(localStorage.getItem("datosApi")) || [];
+  
+    const nuevaReserva = {
+      dia: getDiaReserva,
+      hora: getHoraReserva
+    };
+  
+    const index = datosApi.findIndex(
+      (espacio) => espacio.nombreEspacio.trim().toLowerCase() === nombreEspacio.trim().toLowerCase()
+    );
+  
+    if (index !== -1) {
+      datosApi[index].calendario.push(nuevaReserva);
+      localStorage.setItem("datosApi", JSON.stringify(datosApi));
+  
+      // Limpiar campos
+      [
+        "responsableReserva",
+        "numeroApartamento",
+        "numeroContacto",
+        "correoElectronico",
+        "diaReserva",
+        "horaReserva",
+        "consideraciones"
+      ].forEach((key) => localStorage.removeItem(key));
+  
+      alert("✅ Reserva registrada exitosamente.\nSerás redirigido al Dashboard.");
+  
+      // Redirigir luego de mostrar la alerta
+      setTimeout(() => {
+        navigate("/Dashboard");
+      }, 1500);
+    } else {
+      alert("❌ Error: no se encontró el espacio para la reserva.");
+    }
+  }
+  
+  
+  
 
   return (
     <>
@@ -62,7 +103,7 @@ export function FormularioReserva() {
       <section className="container">
         <section className="row">
           <section className="col-12 col-md-8">
-            <h3>Registra tu reserva en nuestro espacio</h3>
+            <h3>Registra tu reserva en <strong>{nombreEspacio}</strong></h3>
             <hr />
             <form className="border rounded p-4 shadow" onSubmit={capturarDatosFormulario}>
               <div className="input-group mb-3">
@@ -74,7 +115,7 @@ export function FormularioReserva() {
                   className="form-control"
                   placeholder="Responsable Reserva"
                   value={getResponsableReserva}
-                  onChange={(evento)=>{setResponsableReserva(evento.target.value)}}
+                  onChange={(evento) => setResponsableReserva(evento.target.value)}
                 />
               </div>
 
@@ -87,7 +128,7 @@ export function FormularioReserva() {
                   className="form-control"
                   placeholder="Número Apartamento"
                   value={getNumeroApartamento}
-                  onChange={(evento)=>{setNumeroApartamento(evento.target.value)}}
+                  onChange={(evento) => setNumeroApartamento(evento.target.value)}
                 />
               </div>
 
@@ -100,7 +141,7 @@ export function FormularioReserva() {
                   className="form-control"
                   placeholder="Número Contacto"
                   value={getNumeroContacto}
-                  onChange={(evento)=>{setNumeroContacto(evento.target.value)}}
+                  onChange={(evento) => setNumeroContacto(evento.target.value)}
                 />
               </div>
 
@@ -109,11 +150,11 @@ export function FormularioReserva() {
                   <i className="bi bi-envelope-fill"></i>
                 </span>
                 <input
-                  type="number"
+                  type="email"
                   className="form-control"
                   placeholder="Correo electrónico"
                   value={getCorreoElectronico}
-                  onChange={(evento)=>{setCorreoElectronico(evento.target.value)}}
+                  onChange={(evento) => setCorreoElectronico(evento.target.value)}
                 />
               </div>
 
@@ -124,9 +165,9 @@ export function FormularioReserva() {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Dia Reserva"
+                  placeholder="Día Reserva"
                   value={getDiaReserva}
-                  onChange={(evento)=>{setDiaReserva(evento.target.value)}}
+                  onChange={(evento) => setDiaReserva(evento.target.value)}
                 />
               </div>
 
@@ -139,13 +180,17 @@ export function FormularioReserva() {
                   className="form-control"
                   placeholder="Hora Reserva"
                   value={getHoraReserva}
-                  onChange={(evento)=>{setHoraReserva(evento.target.value)}}
+                  onChange={(evento) => setHoraReserva(evento.target.value)}
                 />
               </div>
 
               <div className="mb-3">
                 <div className="form-floating">
-                  <textarea className="form-control"></textarea>
+                  <textarea
+                    className="form-control"
+                    value={getconsideraciones}
+                    onChange={(evento) => setconsideraciones(evento.target.value)}
+                  />
                   <label>Consideraciones</label>
                 </div>
               </div>
@@ -155,9 +200,10 @@ export function FormularioReserva() {
               </button>
             </form>
           </section>
-          <section className="col-12 col-md-4 aling-self-center">
+
+          <section className="col-12 col-md-4 align-self-center">
             <img
-              src="src\assets\img\reserva.png"
+              src="src/assets/img/reserva.png"
               alt="foto"
               className="img-fluid"
             />

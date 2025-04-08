@@ -1,22 +1,28 @@
-.menu{
-    background-color: #ca861f;
-}
-
-.menu .navbar-brand,
-.menu .nav-link {
-    color: rgb(8, 0, 0) !important; /* Color del texto en la navbar */
-}
-
-.menu .nav-link:hover {
-    color: #ffcc00 !important; /* Color al pasar el mouse */
-}
-
-.menu .btn-outline-success {
-    color: rgb(7, 0, 0) !important;  /* Color del texto del botón */
-    border-color: rgb(10, 0, 0) !important; /* Borde del botón */
-}
-
-.menu .btn-outline-success:hover {
-    background-color: white !important;
-    color: #ca861f !important; /* Color del texto al pasar el mouse */
-}
+.menu {
+    background: linear-gradient(90deg, #111 0%, #333 100%);
+    padding: 0.8rem 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .menu .navbar-brand,
+  .menu .nav-link {
+    color: #f8f9fa !important;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  
+  .menu .nav-link:hover {
+    color: #FFD700 !important;
+    transition: color 0.3s ease;
+  }
+  
+  .menu .btn-link {
+    color: #FFD700;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .menu .btn-link:hover {
+    transform: scale(1.1);
+  }
+  
