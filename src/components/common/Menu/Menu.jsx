@@ -21,10 +21,16 @@ export function Menu() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" to="/">Home</Link>
+                <Link className="nav-link active" to="/Dashboard">Dashboard</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/dashboard">Dashboard</Link>
+                <Link className="nav-link" to="/Booking">Booking</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Prueba">Prueba</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Formulario">Formulario Reserva</Link>
               </li>
             </ul>
           </div>

@@ -8,11 +8,11 @@ export let datosApi = Array(
         calendario: Array(
             {
                 dia: "martes",
-                hora: "10:00 am - 11:00 am"
+                hora: "10:00 - 11:00 "
             },
             {
                 dia: "miércoles",
-                hora: "4:00 pm - 5:00 pm"
+                hora: "16:00 - 17:00 "
             }    
         )
     },
@@ -25,11 +25,11 @@ export let datosApi = Array(
         calendario: Array(
             {
                 dia: "lunes",
-                hora: "10:00 am - 11:00 am"
+                hora: "10:00 - 11:00"
             },
             {
                 dia: "jueves",
-                hora: "4:00 pm - 5:00 pm"
+                hora: "16:00 - 17:00"
             }    
         )
     },
@@ -42,11 +42,11 @@ export let datosApi = Array(
         calendario: Array(
             {
                 dia: "viernes",
-                hora: "10:00 am - 11:00 am"
+                hora: "10:00 - 11:00"
             },
             {
                 dia: "sábado",
-                hora: "4:00 pm - 5:00 pm"
+                hora: "16:00  - 17:00 "
             }    
         )
     },
@@ -59,7 +59,7 @@ export let datosApi = Array(
         calendario: Array(
             {
                 dia: "sábado",
-                hora: "10:00 am - 5:00 pm"
+                hora: "10:00 - 17:00"
             }
         )
     },
@@ -67,16 +67,16 @@ export let datosApi = Array(
         id: 5,
         nombreEspacio: "cancha de fútbol",
         descripcion: "Cancha sintética de fútbol 5",
-        foto: "NAN",
+        foto: "src/assets/img/cancha futbol.jfif",
         capacidad: "12",
         calendario: Array(
             {
                 dia: "martes",
-                hora: "10:00 am - 11:00 am"
+                hora: "10:00 - 11:00"
             },
             {
                 dia: "domingo",
-                hora: "4:00 pm - 5:00 pm"
+                hora: "16:00  - 17:00 "
             }    
         )
     },
@@ -84,12 +84,12 @@ export let datosApi = Array(
         id: 6,
         nombreEspacio: "zona BBQ",
         descripcion: "Zona equipada con parrillas y mesas para asados",
-        foto: "NAN",
+        foto: "src/assets/img/zona bbq.webp",
         capacidad: "15",
         calendario: Array(
             {
                 dia: "sábado",
-                hora: "10:00 am - 5:00 pm"
+                hora: "10:00 - 17:00"
             }
         )
     },
@@ -97,12 +97,12 @@ export let datosApi = Array(
         id: 7,
         nombreEspacio: "juegos infantiles",
         descripcion: "Área de juegos segura y divertida para los niños",
-        foto: "NAN",
+        foto: "src/assets/img/juegos infantiles.jfif/",
         capacidad: "10",
         calendario: Array(
             {
                 dia: "todos los días",
-                hora: "10:00 am - 5:00 pm"
+                hora: "10:00 - 17:00"
             }
         )
     },
@@ -115,11 +115,11 @@ export let datosApi = Array(
         calendario: Array(
             {
                 dia: "viernes",
-                hora: "10:00 am - 11:00 am"
+                hora: "10:00 - 11:00"
             },
             {
                 dia: "domingo",
-                hora: "4:00 pm - 5:00 pm"
+                hora: "16:00  - 17:00 "
             }
         )
     },
@@ -133,7 +133,7 @@ export let datosApi = Array(
         calendario: Array(
             {
                 dia: "jueves",
-                hora: "10:00 am - 5:00 pm"
+                hora: "10:00 - 17:00"
             }
         )
     },
@@ -146,7 +146,7 @@ export let datosApi = Array(
         calendario: Array(
             {
                 dia: "lunes a viernes",
-                hora: "10:00 am - 5:00 pm"
+                hora: "10:00 - 17:00"
             }
         )
     }
