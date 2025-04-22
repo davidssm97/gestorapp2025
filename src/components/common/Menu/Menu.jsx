@@ -44,6 +44,9 @@ export function Menu() {
               <li className="nav-item">
                 <Link className="nav-link" to="/Booking">Booking</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Galeria">Galeria</Link>
+              </li>
             </ul>
 
             {/* Botón de acceso admin */}

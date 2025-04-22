@@ -6,6 +6,7 @@ import { Dashboard } from "../pages/Dashboard/Dashboard";
 import { FormularioReserva } from "../common/FormularioReserva/FormularioReserva";
 import { Pagina404 } from "../pages/Pagina404/Pagina404"; 
 import { AdminPanel } from "../pages/AdminPanel/AdminPanel";
+import { Galeria } from "../pages/Galeria/Galeria";
 
 
 export function Rutas() {
@@ -19,6 +20,8 @@ export function Rutas() {
         <Route path="/Formulario" element={<FormularioReserva />} />
         <Route path="*" element={<Pagina404 />} />
         <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/Galeria" element={<Galeria />} />
+
       </Routes>
     </>
   );
