@@ -83,5 +83,7 @@ Booking.jsx → Solo muestra visualmente los espacios (modo lectura).
 
 AdminPanel.jsx → Vista oculta con funciones especiales.
 
+Galeria.jsx → Permite buscar imágenes por palabra clave a través de la API de Pexels, con diseño moderno, campo de búsqueda estilizado, manejo de errores y visualización adaptable.
+
 🧑‍💻 Autor
 Desarrollado por: David Salazar

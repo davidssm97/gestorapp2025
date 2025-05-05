@@ -38,7 +38,7 @@ export function AdminPanel() {
 
   return (
     <div className="container py-5">
-      <h2 className="mb-4 text-center">Panel de Administración</h2>
+      <h2 className="mb-4 mt-5 text-center">Panel de Administración</h2>
 
       <div className="d-flex justify-content-center gap-3 mb-4">
         <button className="btn btn-danger" onClick={reiniciarReservas}>
